@@ -34,7 +34,11 @@ int main(){
     }
     cout << "\nYou tried " << tries << " times.\n";
     if(lives > 0){
-            cout <<  "Your life: " << lives << "\n";
+        if(lives == 0){
+            cout <<  "Your lives remaining: " << lives + 1 << "\n";
+        }else{
+            cout <<  "Your lives remaining: " << lives << "\n";
+            }
         }
     cout << "*********************************************\n";
 }
