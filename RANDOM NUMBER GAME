@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int random, guess, lives = 3, tries = 0;
+    string result;
+    srand(time(NULL));
+    random = (rand() % 10) + 1;
+    cout << "*********** GUESS THE NUMBER GAME ************\n";
+    do{
+        cout << "lives: " << lives << endl;
+        cout << "Guess the number between 1-10: ";
+        cin >> guess;
+        if(guess > random){
+            cout << "try lower.\n\n";
+        }else if(guess < random){
+            cout << "try higher.\n\n";
+        }
+        lives--;
+        tries++;
+        if(lives == 0 && guess == random){
+            lives++;
+        }
+        if(lives == 0){
+            result = "Yes";
+        }
+    }while(random != guess && result != "Yes");
+    if(result == "Yes"){
+        cout << "\nYou are out of life.\nYou lost.\n";
+        cout << "The number was " << random;
+    }else{
+        cout << "\nYou won!\n";
+        cout << "The number was " << random;
+    }
+    cout << "\nYou tried " << tries << " times.\n";
+    if(lives > 0){
+            cout <<  "Your life: " << lives << "\n";
+        }
+    cout << "*********************************************\n";
+}
